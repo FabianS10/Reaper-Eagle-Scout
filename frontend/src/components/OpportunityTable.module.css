@@ -1,0 +1,229 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tableHead {
+  display: grid;
+  padding: 0 16px;
+  height: 36px;
+  align-items: center;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  gap: 0;
+}
+
+.th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.8px;
+  padding: 0 8px;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.th.sortable {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.th.sortable:hover {
+  color: var(--text2);
+}
+
+.th.sorted {
+  color: var(--text2);
+}
+
+.sortArrow {
+  font-size: 10px;
+  color: var(--accent);
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text3);
+  font-size: 13px;
+}
+
+.row {
+  display: grid;
+  padding: 0 16px;
+  min-height: 52px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  gap: 0;
+  transition: background 0.1s;
+  animation: fadeIn 0.25s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.row:hover {
+  background: var(--surface);
+}
+
+.row.selected {
+  background: rgba(200, 146, 42, 0.06);
+  border-left: 2px solid var(--accent);
+}
+
+/* Cells */
+.scoreCell {
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+}
+
+.scoreVal {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.titleCell {
+  padding: 0 8px;
+  min-width: 0;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.titleSub {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cell {
+  padding: 0 8px;
+  min-width: 0;
+}
+
+.cellMain {
+  font-size: 12px;
+  color: var(--text2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cellSub {
+  font-size: 11px;
+  color: var(--text3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Type badge */
+.typeBadge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.5px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+  background: var(--surface2);
+  color: var(--text3);
+  border: 1px solid var(--border);
+}
+
+.type_public_tender  { background: rgba(200,146,42,.1); color: var(--accent); border-color: rgba(200,146,42,.2); }
+.type_grant          { background: var(--green-dim);     color: #6aaa6a; border-color: rgba(74,124,74,.2); }
+.type_private_rfp    { background: var(--surface2);      color: var(--text2); }
+
+/* Deadline */
+.deadline {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dl_critical { color: #a04040; }
+.dl_hot      { color: #9a8030; }
+.dl_open     { color: var(--text2); }
+.dl_closed   { color: var(--text3); text-decoration: line-through; }
+.dl_unknown  { color: var(--text3); }
+
+/* Budget */
+.budget {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* Confidence */
+.conf {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text3);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.pageInfo {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text3);
+}
+
+.pageButtons {
+  display: flex;
+  gap: 4px;
+}
+
+.pageBtn {
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--text2);
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: color 0.1s, border-color 0.1s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--text3);
+}
+
+.pageBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
